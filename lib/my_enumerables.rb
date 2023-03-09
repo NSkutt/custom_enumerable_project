@@ -1,5 +1,8 @@
 module Enumerable
   # Your code goes here
+  def my_each_with_index
+    
+  end
 end
 
 # You will first have to define my_each
@@ -10,9 +13,9 @@ class Array
   # Define my_each here
   def my_each
     i = 0
-    while i < self.length
+    while i < length
+      yield self[i] if block_given?
       i += 1
-      yield if block_given?
     end
     self
   end
