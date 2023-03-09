@@ -1,7 +1,7 @@
 module Enumerable
   # Your code goes here
   def my_each_with_index
-    
+    to_a if is_a?(Hash)
   end
 end
 
@@ -12,11 +12,7 @@ end
 class Array
   # Define my_each here
   def my_each
-    i = 0
-    while i < length
-      yield self[i] if block_given?
-      i += 1
-    end
+    length.times { |i| yield self[i] if block_given? }
     self
   end
 end
