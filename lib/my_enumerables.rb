@@ -5,6 +5,13 @@ module Enumerable
     length.times { |i| yield self[i], i if block_given? }
     self
   end
+
+  def my_select
+    to_a if is_a?(Hash)
+    my_each do |item|
+      yield item if block_given?
+    end
+  end
 end
 
 # You will first have to define my_each
