@@ -2,6 +2,8 @@ module Enumerable
   # Your code goes here
   def my_each_with_index
     to_a if is_a?(Hash)
+    length.times { |i| yield self[i], i if block_given? }
+    self
   end
 end
 
