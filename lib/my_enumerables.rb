@@ -12,6 +12,12 @@ module Enumerable
     end
     new_arr
   end
+
+  def my_all?
+    to_a.my_each do |item|
+      yield item if block_given? ? next : return
+    end
+  end
 end
 
 # You will first have to define my_each
