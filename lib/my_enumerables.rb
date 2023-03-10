@@ -33,6 +33,14 @@ module Enumerable
       return !result if result == true || idx == length - 1
     end
   end
+
+  def my_count
+    number_of_matches = []
+    to_a.my_each do |item|
+      number_of_matches.push(item) if yield item if block_given?
+    end
+    number_of_matches.length.positive? ? number_of_matches.length : length
+  end
 end
 
 # You will first have to define my_each
