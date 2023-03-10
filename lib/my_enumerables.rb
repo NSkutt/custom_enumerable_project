@@ -41,6 +41,14 @@ module Enumerable
     end
     number_of_matches.length.positive? ? number_of_matches.length : length
   end
+
+  def my_map
+    new_arr = []
+    to_a.my_each do |item|
+      new_arr.push(yield item)
+    end
+    new_arr
+  end
 end
 
 # You will first have to define my_each
