@@ -49,6 +49,14 @@ module Enumerable
     end
     new_arr
   end
+
+  def my_inject
+    sum = self[0]
+    my_each_with_index do |item, idx|
+      sum = yield sum, self[idx + 1] if block_given?
+    end
+    sum
+  end
 end
 
 # You will first have to define my_each
