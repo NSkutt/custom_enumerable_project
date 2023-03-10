@@ -14,8 +14,11 @@ module Enumerable
   end
 
   def my_all?
-    to_a.my_each do |item|
-      yield item if block_given? ? next : return
+    my_each_with_index do |item, idx|
+      result = yield item if block_given?
+      return result if result == false
+
+      return true if idx == length - 1
     end
   end
 end
