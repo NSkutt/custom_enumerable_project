@@ -8,9 +8,9 @@ module Enumerable
   def my_select
     new_arr = []
     to_a.my_each do |item|
-      new_arr.push if yield item if block_given?
+      new_arr.push(item) if yield item if block_given?
     end
-    new_arr.length.positive? ? new_arr : self
+    new_arr
   end
 end
 
