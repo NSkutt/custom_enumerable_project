@@ -26,6 +26,13 @@ module Enumerable
       return result if result == true || idx == length - 1
     end
   end
+
+  def my_none?
+    my_each_with_index do |item, idx|
+      result = yield item if block_given?
+      return !result if result == true || idx == length - 1
+    end
+  end
 end
 
 # You will first have to define my_each
