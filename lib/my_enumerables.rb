@@ -1,16 +1,16 @@
 module Enumerable
   # Your code goes here
   def my_each_with_index
-    to_a if is_a?(Hash)
     length.times { |i| yield self[i], i if block_given? }
     self
   end
 
   def my_select
-    to_a if is_a?(Hash)
-    my_each do |item|
-      yield item if block_given?
+    new_arr = []
+    to_a.my_each do |item|
+      new_arr.push if yield item if block_given?
     end
+    new_arr.length.positive? ? new_arr : self
   end
 end
 
