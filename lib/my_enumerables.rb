@@ -53,7 +53,7 @@ module Enumerable
   def my_inject(num)
     sum = num
     my_each_with_index do |item, idx|
-      sum += item
+      sum = yield sum, item if block_given?
       return sum if idx == length - 1
     end
   end
