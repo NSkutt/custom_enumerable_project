@@ -50,12 +50,12 @@ module Enumerable
     new_arr
   end
 
-  def my_inject
-    sum = self[0]
+  def my_inject(num)
+    sum = num
     my_each_with_index do |item, idx|
-      sum = yield sum, self[idx + 1] if block_given?
+      sum += item
+      return sum if idx == length - 1
     end
-    sum
   end
 end
 
